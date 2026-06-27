@@ -1,8 +1,8 @@
 import pygame
 
 pygame.init()
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 1000
+HEIGHT = 1000
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 font = pygame.font.Font("freesansbold.ttf", 20)
 big_font = pygame.font.Font("freesansbold.ttf", 50)
@@ -25,13 +25,67 @@ turn_step = 0
 selection = 100
 valid_moves = []
 
-#load game pieci images
+#load game piece images TODO: Check the sizes once the board is complete
+white_king = pygame.image.load('assets/white_king.png')
+white_king = pygame.transform.scale(white_king, (70, 70))
+
+white_queen = pygame.image.load('assets/white_queen.png')
+white_queen = pygame.transform.scale(white_queen, (70, 70))
+
+white_rook = pygame.image.load('assets/white_rook.png')
+white_rook = pygame.transform.scale(white_rook, (70, 70))
+
+white_bishop = pygame.image.load('assets/white_bishop.png')
+white_bishop = pygame.transform.scale(white_bishop, (70,70))
+
+white_knight = pygame.image.load('assets/white_knight.png')
+white_knight = pygame.transform.scale(white_knight, (70,70))
+
+white_pawn = pygame.image.load('assets/white_pawn.png')
+white_pawn = pygame.transform.scale(white_pawn, (65,65))
+
+
+black_king = pygame.image.load('assets/white_king.png')
+black_king = pygame.transform.scale(black_king, (70, 70))
+
+black_queen = pygame.image.load('assets/white_queen.png')
+black_queen = pygame.transform.scale(black_queen, (70, 70))
+
+black_rook = pygame.image.load('assets/white_rook.png')
+black_rook = pygame.transform.scale(black_rook, (70, 70))
+
+black_bishop = pygame.image.load('assets/white_bishop.png')
+black_bishop = pygame.transform.scale(black_bishop, (70,70))
+
+black_knight = pygame.image.load('assets/white_knight.png')
+black_knight = pygame.transform.scale(black_knight, (70,70))
+
+black_pawn = pygame.image.load('assets/white_pawn.png')
+black_pawn = pygame.transform.scale(black_pawn, (65,65))
+
+
+white_images = [white_pawn, white_queen, white_king, white_knight, white_rook, white_bishop]
+black_images = [black_pawn, black_queen, black_king, black_knight, black_rook, black_bishop]
+
+piece_list = ['pawn', 'queen', 'king', 'knight', 'rook', 'bishop']
+puzzle_over = False #Mieti miten tämä ratkaistaan!
+
+# draw the board
+def draw_board():
+    for i in range(32):
+        row = i // 4
+        column = i % 4
+        if row % 2 == 0:
+            pygame.draw.rect(screen, 'white', [300 - (column * 200 ), row * 100, 100, 100])
+
+
 
 #Temporary main
 run = True
 while run:
     timer.tick(fps)
     screen.fill("black")
+    draw_board()
     
     # event handling
     for event in pygame.event.get():
