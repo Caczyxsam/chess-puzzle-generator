@@ -1,0 +1,1 @@
+The idea of the project is to create a simple chess puzzle generator where you can do puzzles and always go to the next one if you don't get the one you have on screen.
