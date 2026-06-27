@@ -1,6 +1,6 @@
 import pandas as pd
 
-puzzles_csv = (r"C:\Users\samue\Downloads\lichess_db_puzzle.csv")
+puzzles_csv = ("data\puzzledata.csv")
 puzzles_df = pd.read_csv(puzzles_csv)
 
-print(puzzles_df.head(10))
+print(puzzles_df.head(20))
