@@ -1,10 +1,10 @@
 import chess
+import fetcher
 
-board = chess.Board()
+seed = int(input("Give an integer: "))
 
-board.push_san("e4")
+Fen = fetcher.puzzles_df.iloc[seed]["FEN"]
+
+board = chess.Board(Fen)
 
 print(board)
-
-
-

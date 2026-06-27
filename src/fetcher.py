@@ -1,6 +1,6 @@
 import pandas as pd
 
 puzzles_csv = ("data\puzzledata.csv")
-puzzles_df = pd.read_csv(puzzles_csv)
+puzzles_df = pd.read_csv(puzzles_csv, skipinitialspace=True)
 
-print(puzzles_df.head(20))
+print(puzzles_df.iloc[0]["FEN"])
