@@ -25,6 +25,10 @@ black_locations = [(0, 7), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7), (6, 7), (7, 7
 turn_step = 0
 selection = 100
 valid_moves = []
+# the turn comes from the puzzle data
+if GUI.turn == "w":
+    turn_step = 0
+else: turn_step = 2
 
 #load game piece images
 white_king = pygame.image.load('assets/white_king.png')
@@ -111,10 +115,6 @@ def draw_pieces():
                 screen.blit(white_king, (17 + column_number * 100, 17 + row_number * 100))
             if j == "black_king":
                 screen.blit(black_king, (17 + column_number * 100, 17 + row_number * 100))
-
-
-
-
             column_number += 1
         row_number += 1
 
@@ -130,7 +130,12 @@ while run:
     # event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            run = False # WORK ON MOVING THE PIECES STARTS HERE
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            x_coord = event.pos[0] // 100
+            y_coord = event.pos[1] // 100
+            click_coords = (x_coord, y_coord)
+
 
     pygame.display.flip()
 pygame.quit()

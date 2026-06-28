@@ -11,6 +11,7 @@ seed = random.randint(0,1000)
 Fen = fetcher.puzzles_df.iloc[seed]["FEN"]
 rating = fetcher.puzzles_df.iloc[seed]["Rating"]
 right_moves = fetcher.puzzles_df.iloc[seed]["Moves"]
+turn = (Fen.split(" "))[1]
 
 #####FEN to usable data#####
 
