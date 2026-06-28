@@ -1,8 +1,8 @@
 import pygame
 
 pygame.init()
-WIDTH = 1000
-HEIGHT = 1000
+WIDTH = 800
+HEIGHT = 800
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 font = pygame.font.Font("freesansbold.ttf", 20)
 big_font = pygame.font.Font("freesansbold.ttf", 50)
@@ -76,15 +76,18 @@ def draw_board():
         row = i // 4
         column = i % 4
         if row % 2 == 0:
-            pygame.draw.rect(screen, 'white', [300 - (column * 200 ), row * 100, 100, 100])
+            pygame.draw.rect(screen, 'gold', [600 - (column * 200 ), row * 100, 100, 100])
+        else: 
+            pygame.draw.rect(screen, 'gold', [700 - (column * 200 ), row * 100, 100, 100])
 
+# draw the pieces from the FEN
 
 
 #Temporary main
 run = True
 while run:
     timer.tick(fps)
-    screen.fill("black")
+    screen.fill("silver")
     draw_board()
     
     # event handling

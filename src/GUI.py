@@ -12,6 +12,51 @@ Fen = fetcher.puzzles_df.iloc[seed]["FEN"]
 rating = fetcher.puzzles_df.iloc[seed]["Rating"]
 right_moves = fetcher.puzzles_df.iloc[seed]["Moves"]
 
+#####FEN to usable data#####
+
+position = (Fen.split('/'))[:-1]
+print(position)
+
+# Each row into its own list. The result is list of lists, where the order starts from above from white's POW.
+all_rows = []
+number = 0
+for j in position:
+    current_row = list(position[number])
+    current_row_ready = []
+    
+    for i in current_row:
+        if i.isdigit() :
+            current_row_ready += [" "] * int(i)  
+        elif i == "P":
+            current_row_ready.append("white_pawn")
+        elif i == "p":
+            current_row_ready.append("black_pawn")
+        elif i == "N":
+            current_row_ready.append("white_knight")
+        elif i == "n":
+            current_row_ready.append("black_knight")
+        elif i == "B":
+            current_row_ready.append("white_bishop")
+        elif i == "b":
+            current_row_ready.append("black_bishop")
+        elif i == "R":
+            current_row_ready.append("white_rook")
+        elif i == "r":
+            current_row_ready.append("black_rook")
+        elif i == "Q":
+            current_row_ready.append("white_queen")
+        elif i == "q":
+            current_row_ready.append("black_queen")
+        elif i == "K":
+            current_row_ready.append("white_king")
+        elif i == "k":
+            current_row_ready.append("black_king")
+    number += 1
+    all_rows.append(current_row_ready)
+print(all_rows)
+        
+
+
 #####Taustakuva#####
 
 #The board
@@ -34,4 +79,4 @@ canvas.pack()
 #Board on canvas
 '''TODO'''
 
-root.mainloop()
+#root.mainloop()
