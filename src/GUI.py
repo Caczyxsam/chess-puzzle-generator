@@ -59,13 +59,6 @@ print(all_rows)
 
 #####Taustakuva#####
 
-#The board
-board = chess.Board(Fen)
-board_svg = chess.svg.board(board, size=400)
-
-with open("chessboard.svg", "w") as f:
-    f.write(board_svg)
-
 #Name and logo for the window
 root = tk.Tk()
 root.title("Chess Puzzle Generator")

@@ -1,4 +1,5 @@
 import pygame
+import GUI
 
 pygame.init()
 WIDTH = 800
@@ -45,22 +46,22 @@ white_pawn = pygame.image.load('assets/white_pawn.png')
 white_pawn = pygame.transform.scale(white_pawn, (65,65))
 
 
-black_king = pygame.image.load('assets/white_king.png')
+black_king = pygame.image.load('assets/black_king.png')
 black_king = pygame.transform.scale(black_king, (70, 70))
 
-black_queen = pygame.image.load('assets/white_queen.png')
+black_queen = pygame.image.load('assets/black_queen.png')
 black_queen = pygame.transform.scale(black_queen, (70, 70))
 
-black_rook = pygame.image.load('assets/white_rook.png')
+black_rook = pygame.image.load('assets/black_rook.png')
 black_rook = pygame.transform.scale(black_rook, (70, 70))
 
-black_bishop = pygame.image.load('assets/white_bishop.png')
+black_bishop = pygame.image.load('assets/black_bishop.png')
 black_bishop = pygame.transform.scale(black_bishop, (70,70))
 
-black_knight = pygame.image.load('assets/white_knight.png')
+black_knight = pygame.image.load('assets/black_knight.png')
 black_knight = pygame.transform.scale(black_knight, (70,70))
 
-black_pawn = pygame.image.load('assets/white_pawn.png')
+black_pawn = pygame.image.load('assets/black_pawn.png')
 black_pawn = pygame.transform.scale(black_pawn, (65,65))
 
 
@@ -81,6 +82,41 @@ def draw_board():
             pygame.draw.rect(screen, 'gold', [700 - (column * 200 ), row * 100, 100, 100])
 
 # draw the pieces from the FEN
+def draw_pieces():    
+    row_number = 0
+    for i in GUI.all_rows:
+        column_number = 0
+        for j in i:
+            if j == "white_pawn":
+                screen.blit(white_pawn, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_pawn":
+                screen.blit(black_pawn, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "white_knight":
+                screen.blit(white_knight, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_knight":
+                screen.blit(black_knight, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "white_bishop":
+                screen.blit(white_bishop, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_bishop":
+                screen.blit(black_bishop, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "white_rook":
+                screen.blit(white_rook, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_rook":
+                screen.blit(black_rook, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "white_queen":
+                screen.blit(white_queen, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_queen":
+                screen.blit(black_queen, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "white_king":
+                screen.blit(white_king, (17 + column_number * 100, 17 + row_number * 100))
+            if j == "black_king":
+                screen.blit(black_king, (17 + column_number * 100, 17 + row_number * 100))
+
+
+
+
+            column_number += 1
+        row_number += 1
 
 
 #Temporary main
@@ -89,6 +125,7 @@ while run:
     timer.tick(fps)
     screen.fill("silver")
     draw_board()
+    draw_pieces()
     
     # event handling
     for event in pygame.event.get():
