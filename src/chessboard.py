@@ -26,7 +26,7 @@ turn_step = 0
 selection = 100
 valid_moves = []
 
-#load game piece images TODO: Check the sizes once the board is complete
+#load game piece images
 white_king = pygame.image.load('assets/white_king.png')
 white_king = pygame.transform.scale(white_king, (70, 70))
 
@@ -40,7 +40,7 @@ white_bishop = pygame.image.load('assets/white_bishop.png')
 white_bishop = pygame.transform.scale(white_bishop, (70,70))
 
 white_knight = pygame.image.load('assets/white_knight.png')
-white_knight = pygame.transform.scale(white_knight, (70,70))
+white_knight = pygame.transform.scale(white_knight, (75,75))
 
 white_pawn = pygame.image.load('assets/white_pawn.png')
 white_pawn = pygame.transform.scale(white_pawn, (65,65))
@@ -59,7 +59,7 @@ black_bishop = pygame.image.load('assets/black_bishop.png')
 black_bishop = pygame.transform.scale(black_bishop, (70,70))
 
 black_knight = pygame.image.load('assets/black_knight.png')
-black_knight = pygame.transform.scale(black_knight, (70,70))
+black_knight = pygame.transform.scale(black_knight, (75,75))
 
 black_pawn = pygame.image.load('assets/black_pawn.png')
 black_pawn = pygame.transform.scale(black_pawn, (65,65))
