@@ -1,7 +1,6 @@
 import chess
 import fetcher
 import random
-import chess.svg
 from IPython.display import display
 import tkinter as tk
 
@@ -15,7 +14,7 @@ turn = (Fen.split(" "))[1]
 
 #####FEN to usable data#####
 
-position = (Fen.split('/'))[:-1]
+position = Fen.split(" ")[0].split("/")
 print(position)
 
 # Each row into its own list. The result is list of lists, where the order starts from above from white's POW.
@@ -54,8 +53,7 @@ for j in position:
             current_row_ready.append("black_king")
     number += 1
     all_rows.append(current_row_ready)
-print(all_rows)
-        
+
 
 
 #####Taustakuva#####
@@ -63,7 +61,7 @@ print(all_rows)
 #Name and logo for the window
 root = tk.Tk()
 root.title("Chess Puzzle Generator")
-icon = tk.PhotoImage(file="src\chess_puzzle_solver_logo.png")
+icon = tk.PhotoImage(file="src/chess_puzzle_solver_logo.png")
 root.iconphoto(True, icon)
 
 #Creating the background canvas
