@@ -84,6 +84,9 @@ black_images = [black_pawn, black_queen, black_king, black_knight, black_rook, b
 piece_list = ['pawn', 'queen', 'king', 'knight', 'rook', 'bishop']
 puzzle_over = False #Mieti miten tämä ratkaistaan!
 
+# check/flash counter
+counter = 0
+
 ##### Draw the board #####
 def draw_board():
     for i in range(32):
@@ -279,6 +282,29 @@ def check_valid_moves():
     valid_options = options_list[selection]
     return valid_options
 
+#chech in the king is in check
+def draw_check():
+    checked = False
+    if turn_step < 2:
+        if 'king' in white_pieces:
+            king_index = white_pieces.index('king')
+            king_location = white_locations[king_index]
+            for i in range(len(black_options)):
+                if king_location in black_options[i]:
+                    if counter < 15:
+                        pygame.draw.rect(screen, 'red', [white_locations[king_index][0] * 100 + 1,
+                                                              (7 - white_locations[king_index][1]) * 100 + 1, 100, 100], 5)
+    else:
+        if 'king' in black_pieces:
+            king_index = black_pieces.index('king')
+            king_location = black_locations[king_index]
+            for i in range(len(white_options)):
+                if king_location in white_options[i]:
+                    if counter < 15:
+                        pygame.draw.rect(screen, 'red', [black_locations[king_index][0] * 100 + 1,
+                                                               (7 - black_locations[king_index][1]) * 100 + 1, 100, 100], 5)
+
+
 print(f"The turn step is {turn_step}")
 
 # Temporary main
@@ -287,9 +313,13 @@ black_options = check_options(black_pieces, black_locations, 'black')
 run = True
 while run:
     timer.tick(fps)
+    if counter < 10:
+        counter += 1
+    else: counter = 0
     screen.fill("silver")
     draw_board()
     draw_pieces()
+    draw_check()
     if selection != 100:
         valid_moves = check_valid_moves()
 
