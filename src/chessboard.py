@@ -17,8 +17,8 @@ white_locations = []
 
 black_pieces = []
 black_locations = []
-#Piece list
 
+#Piece list
 long_piece_list = list(itertools.chain.from_iterable(GUI.all_rows))
 
 for j in long_piece_list:
